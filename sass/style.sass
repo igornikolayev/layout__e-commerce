@@ -1,0 +1,503 @@
+@font-face
+  font-family: "Avenir book"
+  src: url('../fonts/Avenir-Book.ttf')
+@font-face
+  font-family: "Avenir heavy"
+  src: url('../fonts/Avenir-Heavy.ttf')
+@font-face
+  font-family: "Avenir medium"
+  src: url('../fonts/Avenir-Medium.ttf')
+
+::placeholder
+	color: #c9c7c7
+	font-weight: 100
+	
+body, p, h1, h2
+	font-family: "Avenir book"
+	margin: 0
+	padding: 0
+	color: #6d6d6d
+button
+	cursor: pointer
+	outline: none
+button:hover
+	background: rgba(21,200,224,1)
+	background: linear-gradient(to right, rgba(21,200,224,1) 0%, rgba(21,178,211,1) 100%)
+	border-color: #fff
+	p
+		color: #fff
+.logo
+	margin-left: 20px
+	margin-top: 20px	
+.container
+	width: 80%
+	max-width: 1600px
+	margin: auto
+.header
+	margin-top: 70px
+	text-align: center
+.header__small-text
+	font-size: 23px
+	margin-bottom: 15px
+.header__text
+	font-family: "Avenir heavy"
+	font-size: 55px
+	margin-bottom: 35px
+	color: #292929
+.main
+	margin-top: 80px
+.main__block
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	width: 100%
+	position: relative
+	align-items: flex-start
+.main__block__skills
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	width: 50%
+	text-align: center
+.main__block__skills__item
+	width: 36%
+	margin-bottom: 60px
+	img
+		margin-bottom: 15px
+	p
+		font-size: 20px
+		color: #6d6d6d
+		&::before 
+			content: "\2022" 
+			color: #16b9d2
+			font-weight: bold
+			display: inline-block 
+			width: 2em
+			margin-left: -2em
+.main__block__demand
+	width: 50%
+	width: 360px
+	padding: 0 35px
+	text-align: center
+	border-radius: 20px
+	box-shadow: 10px 20px 35px 1px rgba(199,185,199,1)
+	h3
+		margin-top: 30px
+		font-size: 20px
+		font-family: "Avenir book"
+		font-weight: normal
+		color: #6d6d6d
+		margin-bottom: 30px	
+.wrap
+	width: 360px
+	margin: 0
+.main__block__demand__input
+	position: relative
+	input
+		padding: 10px
+		padding-left: 54px 
+		font-size: 16px
+		width: 286px
+		color: #494949
+		border-radius: 10px
+		border: 1px solid #e8e8e8
+		text-decoration: none
+		outline: none
+		font-family: 'Ubuntu'
+		font-weight: 100
+		margin-bottom: 25px	
+		text-align: left
+		&::placeholder
+			color: #c9c7c7
+			font-size: 16px
+		&:hover
+			border-color: #16b9d2
+		&:hover + .main__block__demand__input__img
+			background: url('../img/suitcase.png') no-repeat
+			width: 24px
+			height: 24px
+		&:focus + .main__block__demand__input__img
+			background: url('../img/suitcase.png') no-repeat
+			width: 24px
+			height: 20px
+					
+	&__img
+		background: url('../img/light_case.png') no-repeat
+		width: 22px
+		height: 20px
+		position: absolute
+		top: 10px
+		left: 20px
+
+.main__block__demand__input__img-arrow
+	position: absolute
+	background: url('../img/right-arrow.png') no-repeat
+	width: 20px
+	height: 20px
+	top: 16px
+	right: 15px
+	display: none
+.main__block__demand__input__img-arrow-blue
+	position: absolute
+	background: url('../img/arrow-d.png') no-repeat
+	width: 20px
+	height: 20px
+	top: 10px
+	right: 13px
+	display: none
+.main__block__demand__input__img-first
+	position: absolute
+	top: 130px
+	right: 55px
+.main__block__demand__input:hover + .main__block__demand__input__img-arrow 
+	display: block
+	transform: rotate(0deg)
+	
+
+
+
+.main__block__demand__proposition
+	list-style: none
+	padding: 20px
+	padding-bottom: 5px
+	box-shadow: 2px 5px 15px 1px rgba(199,185,199,1)
+	margin-bottom: 5px
+	font-size: 18px
+	display: none
+	margin-bottom: 20px
+	li
+		text-align: left
+
+		margin-bottom: 20px
+		font-family: 'Muli', sans-serif
+		color: #494949
+		&:hover
+			color: #129bd4
+			cursor: pointer
+.main__block__demand__proposition-font
+	font-size: 22px
+	p
+.main__block__demand__input-font
+	input
+		&::placeholder
+			font-size: 22px
+
+.main__block__demand__button		
+	margin: auto
+	color: #fff
+	background: rgba(21,200,224,1)
+	background: linear-gradient(to right, rgba(21,200,224,1) 0%, rgba(21,178,211,1) 100%)
+	padding: 10px 25px 10px 35px
+	border: none
+	border-radius: 50px
+	display: flex
+	flex-direction: row
+	opacity: 0.3 
+	align-items: center
+	width: 100%
+	font-size: 18px
+	font-family: "Avenir medium"
+	white-space: nowrap
+	margin-bottom: 40px
+	&:after
+		margin-left: 70px 
+		content: ''
+		display: inline-block
+		width: 10px
+		height: 10px
+		border-top: 1px solid #fff
+		border-right: 1px solid #fff
+		transform: rotate(45deg)
+
+
+
+	
+	
+.form-header
+	margin-top: 20px
+.form-header-text
+	margin-bottom: 20px
+.form-small-text
+	margin-top: 0
+	margin-bottom: 95px
+	font-size: 20px
+.contact__header
+	display: flex
+	flex-direction: row
+	font-family: 'Ubuntu'
+	font-weight: bold
+	margin-bottom: 15px
+	margin-left: 5px
+	color: #494949
+	align-items: center
+	&__image
+		position: absolute
+		margin-left: -38px
+		margin-top: -8px
+
+	
+	
+.main-container
+	max-width: 550px
+	min-width: 550px
+	margin: auto
+	display: flex
+	flex-direction: column
+
+	
+.main__form
+	width: 100%
+	margin: auto
+	font-size: 22px
+
+.main__form-second
+	margin-top: 70px
+
+.contact__fields
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	position: relative
+	img
+		position: absolute
+		top: 15px
+		right: 20px 
+	input
+		width: 96%
+		border: 1px solid #fff
+		font-size: 22px
+		color: #494949
+		padding: 9px
+		margin-bottom: 10px
+		border-radius: 10px
+		outline: none 
+		font-family: 'Ubuntu'
+		font-weight: normal
+		&:hover
+			border: 1px solid #e8e8e8
+		&:focus
+			border: 1px solid #16b9d2
+	&__phone
+		position: relative
+		&:hover> .contact__fields__phone__image
+			
+			width: 20px
+			height: 20px	
+			position: absolute
+			top: 13px
+			right: 15px
+
+.phone__active
+	background: url('../img/correct.png') no-repeat
+	width: 20px
+	height: 20px	
+	position: absolute
+	top: 13px
+	right: 15px
+.phone__not-active
+	background: url('../img/danger.png') no-repeat
+	width: 20px
+	height: 20px	
+	position: absolute
+	top: 13px
+	right: 15px
+			
+.main__url__field__button
+	display: none
+.main__url__fields
+	display: flex
+	flex-direction: column
+	box-shadow: 5px 10px 50px -5px rgba(199,185,199,1)
+	border-radius: 20px
+	overflow: hidden
+.main__url__field
+	margin-top: 10px
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	align-items: center
+	position: relative
+	width: 100%
+	&__button
+		position: absolute
+		top: 0px 
+		right: 0px
+	&:hover > a
+		border-color: #e8e8e8
+	&:hover > .main__url__field__button
+		display: block 	
+	a
+		padding: 10px 
+		font-size: 22px
+		width: 100%
+		color: #494949
+		border-radius: 10px
+		border: 1px solid #fff
+		text-decoration: none
+		outline: none
+		font-family: 'Ubuntu'
+		font-weight: 100
+		margin-bottom: 2px	
+		box-sizing: padding-box
+	input
+		padding: 10px 
+		font-size: 22px
+		color: #494949
+		width: 100%
+		border-radius: 10px
+		border: 1px solid #ffffff
+		text-decoration: none
+		outline: none
+		font-family: 'Ubuntu'
+		&:hover
+			border: 1px solid #e8e8e8
+		&:focus
+			border: 1px solid #16b9d2
+		
+	&__button
+		margin-left: 25px
+		background: #fff
+		border: none
+		&:hover
+			background: none
+.button-form
+	margin-top: 170px
+	width: 100%
+	justify-content: center
+	p
+		text-align: center
+		color: #ffffff
+		font-size: 18px
+		font-family: "Avenir medium"
+		white-space: nowrap
+		
+	&:after
+		content: none 
+
+.danke__button
+	margin: auto
+	margin-top: 50px	
+	background: rgba(21,200,224,1)
+	background: linear-gradient(to right, rgba(21,200,224,1) 0%, rgba(21,178,211,1) 100%)
+	padding: 10px 100px
+	border: none
+	border-radius: 50px
+	p
+		color: #fff
+		font-size: 18px
+.danke-text
+	font-size: 20px
+	margin-top: 20px
+.danke-header
+	margin-top: 235px
+	margin-bottom: 0 
+.danke-body
+	height: 100%
+	margin: auto
+	margin-top: -50px 
+.footer
+	margin-top: -10px
+	margin-bottom: 	10px
+	font-family: 'Open Sans'
+	font-size: 13px
+	text-align: center
+.footer-index
+	margin-top: 50px
+@media screen and (max-width: 1024px) 
+	.main__block
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		width: 100%
+	.main__block__skills
+		display: flex
+	.main__block__skills__item
+		width: 50%
+	.main__block__demand
+		position: relative
+@media screen and (max-width: 480px) 
+	.logo
+	.header__small-text
+		font-size: 20px
+	.header__text
+		font-size: 33px
+	.main
+		width: 100%
+	.container
+		width: 90%
+	.main__block
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		width: 100%
+	.main__block__skills
+		display: flex
+	.main__block__skills__item
+		width: 100%
+		margin-bottom: 50px
+		p
+			font-size: 17px
+
+	.main__block__demand
+		max-width: 250px
+		position: relative
+	.wrap
+		max-width: 250px
+		h3
+			font-size: 16px
+	.main__block__demand__input
+		input
+			max-width: 200px
+			&::placeholder
+				font-size: 12px
+	.main__block__demand__input__img-first
+		right: 35px
+		top: 119px
+	.main__block__demand__proposition
+		li
+			font-size: 14px
+	.main__block__demand__button
+		font-size: 16px
+		margin-left: 8px
+	.main-container
+		width: 80%
+		margin:  0 auto
+		position: relative
+		max-width: 80%
+		min-width: 80%
+	.main__block__demand__input-font
+		input 
+			max-width: 90%
+			min-width: 90%
+	.contact__header
+		font-size: 18px		
+	.main__form
+		max-width: 90%
+	.contact__fields
+		width: 100%
+		img
+			position: absolute
+			top: 13px
+			right: 50px 
+		input
+			width: 90%
+			font-size: 18px
+	.main__block__demand__input__img-arrow-blue
+		top: 8px
+	.main__url__field__button
+		right: -40px
+	.danke__button
+		background: rgba(21,200,224,1)
+		background: linear-gradient(to right, rgba(21,200,224,1) 0%, rgba(21,178,211,1) 100%)
+		padding: 10px 50px
+		border: none
+		border-radius: 50px
+		p
+			color: #fff
+			font-size: 18px
+	.footer-index
+		margin-top: 50px
+	.button-form
+		margin-top: 70px
