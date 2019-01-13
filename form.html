@@ -39,16 +39,14 @@
                             main__block__demand__input-font">
                             <input type="text" id="typePage1"
                             	readonly="readonly" 
-                                onmouseover="hoverTypePage()"
-                                onmouseout="notHover()"
-                                onfocus="typeFocus()"
+                                onmouseover="hover()"
+                                onmouseout="notHover()" 
                                 placeholder="Projekt(Landing Page, Mailing)">
                         </div>
-                        <div id="typePage-arrow"
-                            class="main__block__demand__input__img-arrow">
-                        </div>
+                        <img  id="typePage-arrow" onmouseover="hover()" onclick="typeFocus()" src="./img/right-arrow.png"  alt=""
+							class="main__block__demand__input__img-first">
                         <ul class="main__block__demand__proposition"
-                            id="typePage-list" onmouseover="hover()">
+                            id="typePage-list" onmouseover="listHover()" >
                             <li onclick="selectType(0)" class="main__block__demand__proposition__item"> Landing Page</li>
                             <li onclick="selectType(1)" class="main__block__demand__proposition__item"> Affiliate Shop</li>
                             <li onclick="selectType(2)" class="main__block__demand__proposition__item"> PSD zur HTML</li>
@@ -80,7 +78,7 @@
                                 class="contact__header__image">
                             <p class="contact__header">Kontakt</p>
                         </div>
-                        <div class="contact__fields">
+                        <div class="contact__fields contact__fields-bot  ">
                             <input onchange="ar()" type="text/javascript"
                                 class="contact__input" id="contact__input-1"
                                 placeholder="Ihre Name">
@@ -88,12 +86,16 @@
                                 class="contact__input" id="contact__input-2"
                                 placeholder="E-Mail">
                             <div class="contact__fields__phone"
-                                onfocusout="phoneOut()" onmouseover="phoneOn()">
-                                <input onchange="forIn3()" type="text"
+                                onfocusout="phoneOut()"
+                                onmouseout="phoneMouseOut()" 
+                                onmouseover="phoneOn()" >
+                                <input onchange="forIn3()" onfocus="forIn3()" onkeypress="forIn3()"  onfocusout="phoneMouseOut()" type="text"
                                     class="contact__input" id="contact__input-3"
                                     placeholder="Telefonnummer">
                                 <div class="contact__fields__phone__image"
-                                    id="phone-img"></div>
+                                    id="phone-img">
+                                    	
+                                    </div>
                             </div>
                         </div>
                     </form>
@@ -113,45 +115,62 @@
         <script>
             window.onload = function () {
                     document.getElementById("typePage1").value = sessionStorage.getItem('itemType');
-                };
+            };
             let typePage = document.getElementById("typePage1");
             const pageArrow = document.getElementById("typePage-arrow");
             const pageList = document.getElementById("typePage-list");
             const changeImg = document.getElementById("changeImg");
             let lists = document.getElementsByClassName("main__block__demand__proposition__item");
             const image = document.getElementById('phone-img');
-
+            let inputPhone=document.getElementById("contact__input-3");
             function toForm() {
                 sessionStorage.setItem('key', typePage.value);
             }
 
             function hover() {
-                pageArrow.style.display = "block";
-                typePage.style.borderColor = "#16b9d2"
+                if (pageList.style.display=="block") {
+                	typePage.style.borderColor = "#16b9d2";
+                	pageArrow.style.visibility="visible";
+	                pageArrow.src="./img/arrow-r.png";
+                } else {
+	                pageArrow.style.visibility="visible";
+                	typePage.style.borderColor = "#e8e8e8";
+	                pageArrow.src="./img/right-arrow.png";
+                }
 
             };
 
-            function focusTypePage() {
-                pageArrow.classList.remove('main__block__demand__input__img-arrow');
-                pageArrow.classList.add('main__block__demand__input__img-arrow-blue')
-            }
-
             function hoverTypePage() {
-                pageArrow.style.display = "block";
-                typePage.style.borderColor = "#e8e8e8"
+                pageArrow.style.visibility="visible";
+				typePage.style.borderColor = "#16b9d2";
+                pageArrow.src="./img/arrow-r.png ";
             }
 
             function notHover() {
-                pageArrow.style.display = "none";
-                typePage.style.borderColor = "#fff"
+            	if (pageList.style.display=="block") {
+            		hoverTypePage();
+            	} else {
+	            	pageArrow.style.visibility = "hidden";
+	                typePage.style.borderColor = "#fff"	
+            	}
+                
             };
-
-            function typeFocus() {
-                pageArrow.style.transform = "rotate(270deg)";
-                pageList.style.display = "block";
-                pageArrow.style.display = "block";
+            function listHover(){
+            	pageArrow.style.visibility = "visible";
+        		pageArrow.src="./img/arrow-r.png";
                 typePage.style.borderColor = "#16b9d2"
-                focusTypePage();
+            }
+            function typeFocus() {
+                if (pageList.style.display == "block") {
+                	pageList.style.display = "none"
+                	pageArrow.src="./img/arrow-d.png";
+                } else{
+                	pageList.style.display = "block";
+	                pageArrow.style.visibility="visible";
+	                typePage.style.borderColor = "#16b9d2";
+	                pageArrow.src="./img/arrow-r.png";
+                }
+                
             };
 
             function selectType(i) {
@@ -159,19 +178,28 @@
                 pageList.style.display = "none";
                 pageArrow.style.transform = "rotate(0deg)";
                 typePage.style.borderColor = "#fff"
-                pageArrow.style.display = "none";
-                pageArrow.classList.remove('main__block__demand__input__img-arrow-blue');
-                pageArrow.classList.add('main__block__demand__input__img-arrow');
+                pageArrow.style.visibility = "hidden";
               
             };
 
+            function phoneMouseOut(){
+            	inputPhone.style.borderColor="#fff";
+                image.style.display = "none";	
+            };
             function phoneOut() {
-                image.style.display = "none"
-            }
+                image.style.display = "none";
+                
+            };
 
             function phoneOn() {
-                image.style.display = "block"
-            }
+                image.style.display = "block";
+                if ( inputPhone.value=='') {
+                	inputPhone.style.borderColor="#ff7592";
+                } else {
+                	inputPhone.style.borderColor="#55e0a4";
+                }
+
+            };
         </script>
         <script>
             function ar() {
@@ -201,6 +229,14 @@
 
             };
 
+            function phoneOnChange() {
+            	inputPhone.style.borderColor="#16b9d2";
+            	if ( inputPhone.value=='') {
+                	inputPhone.style.borderColor="#ff7592";
+                } else {
+                	inputPhone.style.borderColor="#55e0a4";
+                }
+            };
             function ar3() {
                 const image = document.getElementById('phone-img');
                 const inputs3 = document.getElementById('contact__input-3').value;
@@ -218,6 +254,7 @@
             function forIn3() {
                 ar();
                 ar3();
+                phoneOnChange();
             }
             let addUrl = new Vue({
                 el: '#input_url',

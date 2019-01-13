@@ -49,11 +49,11 @@
 							<h3>bekommen Sie Bewertung <br>
 								zur Ihrem Projekt</h3>
 							<div class="main__block__demand__input">
-								<input type="text" id="typePage" onmouseover="hover()" onmouseout="notHover()" onfocus="typeFocus()" placeholder="Projekt (Landing Page, Mailing)" readonly="readonly">
-								<div class="main__block__demand__input__img" id="changeImg">
+								<input type="text" id="typePage" onmouseover="hover()" onmouseout="notHover()"  placeholder="Projekt (Landing Page, Mailing)" readonly="readonly">
+								<img src="./img/light_case.png" class="main__block__demand__input__img" id="changeImg">
 								</div>
 							</div>
-							<img src="img/arrow-d.png" id="typePage-arrow" alt=""
+							<img onmouseover="hover()" onclick="typeFocus()" src="img/arrow-d.png" id="typePage-arrow" alt=""
 								class="main__block__demand__input__img-first">
 							<ul class="main__block__demand__proposition" id="typePage-list"
 								onmouseover="hover()">
@@ -90,28 +90,63 @@
 	const but = document.getElementById("buttonToForm");
 
 
-	function hover() {
-		pageArrow.style.display = "block";
+            function hover() {
+                if (pageList.style.display=="block") {
+                	typePage.style.borderColor = "#16b9d2";
+                	pageArrow.style.visibility="visible";
+	                pageArrow.src="./img/arrow-r.png";
+	                changeImg.src="img/suitcase.png";
+                } else {
+                	changeImg.src="img/suitcase.png";
+                	typePage.style.borderColor = "#16b9d2";
+	                pageArrow.style.visibility="visible";
+	                pageArrow.src="./img/arrow-d.png";
+                }
 
-	};
+            };
 
-	function notHover() {
-		pageArrow.style.display = "none";
-	};
+            function hoverTypePage() {
+                pageArrow.style.visibility="visible";
+				typePage.style.borderColor = "#16b9d2";
+                pageArrow.src="./img/arrow-r.png";
+                changeImg.src="img/suitcase.png";
+            }
 
-	function typeFocus() {
-		pageArrow.style.transform = "rotate(270deg)";
-		pageList.style.display = "block";
-		pageArrow.style.display = "block";
-		typePage.style.borderColor = "#16b9d2"
-	};
-
+            function notHover() {
+            	if (pageList.style.display=="block") {
+            		hoverTypePage();
+            	} else {
+            		changeImg.src="img/light_case.png";
+	            	pageArrow.style.visibility = "hidden";
+	                typePage.style.borderColor = "#e8e8e8"	
+            	}
+                
+            };
+            function listHover(){
+            	pageArrow.style.visibility = "visible";
+        		pageArrow.src="./img/arrow-r.png";
+                typePage.style.borderColor = "#16b9d2";
+                changeImg.style.background="url('../img/light_case.png') no-repeat"
+            }
+            function typeFocus() {
+                if (pageList.style.display == "block") {
+                	pageList.style.display = "none"
+                	pageArrow.src="./img/arrow-d.png";
+                } else{
+                	pageList.style.display = "block";
+	                pageArrow.style.visibility="visible";
+	                typePage.style.borderColor = "#16b9d2"
+	                pageArrow.src="./img/arrow-r.png";
+                }
+                
+            };
 	function selectType(i) {
 		typePage.value = lists[i].innerHTML;
 		pageList.style.display = "none";
 		pageArrow.style.transform = "rotate(0deg)";
 		typePage.style.borderColor = "#fff"
-		pageArrow.style.display = "none";
+		pageArrow.style.visibility="hidden";
+		changeImg.src="img/light_case.png";
 		but.disabled = false;
 		but.style.opacity = "1";
 		typePage.style.borderColor = "#e8e8e8"

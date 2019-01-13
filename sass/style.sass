@@ -34,7 +34,7 @@ button:hover
 	max-width: 1600px
 	margin: auto
 .header
-	margin-top: 70px
+	margin-top: 75px
 	text-align: center
 .header__small-text
 	font-size: 23px
@@ -59,6 +59,7 @@ button:hover
 	flex-wrap: wrap
 	width: 50%
 	text-align: center
+	margin-left: 20px
 .main__block__skills__item
 	width: 36%
 	margin-bottom: 60px
@@ -82,12 +83,12 @@ button:hover
 	border-radius: 20px
 	box-shadow: 10px 20px 35px 1px rgba(199,185,199,1)
 	h3
-		margin-top: 30px
+		margin-top: 20px
 		font-size: 20px
 		font-family: "Avenir book"
 		font-weight: normal
 		color: #6d6d6d
-		margin-bottom: 30px	
+		margin-bottom: 40px	
 .wrap
 	width: 360px
 	margin: 0
@@ -105,52 +106,27 @@ button:hover
 		outline: none
 		font-family: 'Ubuntu'
 		font-weight: 100
-		margin-bottom: 25px	
+		margin-bottom: 15px	
 		text-align: left
 		&::placeholder
 			color: #c9c7c7
 			font-size: 16px
 		&:hover
 			border-color: #16b9d2
-		&:hover + .main__block__demand__input__img
-			background: url('../img/suitcase.png') no-repeat
-			width: 24px
-			height: 24px
-		&:focus + .main__block__demand__input__img
-			background: url('../img/suitcase.png') no-repeat
-			width: 24px
-			height: 20px
-					
+		
 	&__img
-		background: url('../img/light_case.png') no-repeat
-		width: 22px
-		height: 20px
 		position: absolute
 		top: 10px
 		left: 20px
+#typePage-arrow
+	visibility: hidden 
 
-.main__block__demand__input__img-arrow
-	position: absolute
-	background: url('../img/right-arrow.png') no-repeat
-	width: 20px
-	height: 20px
-	top: 16px
-	right: 15px
-	display: none
-.main__block__demand__input__img-arrow-blue
-	position: absolute
-	background: url('../img/arrow-d.png') no-repeat
-	width: 20px
-	height: 20px
-	top: 10px
-	right: 13px
-	display: none
 .main__block__demand__input__img-first
 	position: absolute
-	top: 130px
+	top: 129px
 	right: 55px
 .main__block__demand__input:hover + .main__block__demand__input__img-arrow 
-	display: block
+	visibility: visible
 	transform: rotate(0deg)
 	
 
@@ -161,14 +137,14 @@ button:hover
 	padding: 20px
 	padding-bottom: 5px
 	box-shadow: 2px 5px 15px 1px rgba(199,185,199,1)
-	margin-bottom: 5px
 	font-size: 18px
 	display: none
-	margin-bottom: 20px
+	margin-bottom: 33px
+	border-radius: 10px
 	li
 		text-align: left
 
-		margin-bottom: 20px
+		margin-bottom: 17px
 		font-family: 'Muli', sans-serif
 		color: #494949
 		&:hover
@@ -198,6 +174,7 @@ button:hover
 	font-size: 18px
 	font-family: "Avenir medium"
 	white-space: nowrap
+	margin-top: 20px
 	margin-bottom: 40px
 	&:after
 		margin-left: 70px 
@@ -214,7 +191,7 @@ button:hover
 	
 	
 .form-header
-	margin-top: 20px
+	margin-top: 25px
 .form-header-text
 	margin-bottom: 20px
 .form-small-text
@@ -226,7 +203,7 @@ button:hover
 	flex-direction: row
 	font-family: 'Ubuntu'
 	font-weight: bold
-	margin-bottom: 15px
+	margin-bottom: 10px
 	margin-left: 5px
 	color: #494949
 	align-items: center
@@ -251,8 +228,10 @@ button:hover
 	font-size: 22px
 
 .main__form-second
-	margin-top: 70px
-
+	margin-top: 145px
+.contact__fields-bot
+	input
+		margin-top: 10px
 .contact__fields
 	display: flex
 	flex-direction: column
@@ -268,7 +247,7 @@ button:hover
 		font-size: 22px
 		color: #494949
 		padding: 9px
-		margin-bottom: 10px
+		margin-bottom: 5px
 		border-radius: 10px
 		outline: none 
 		font-family: 'Ubuntu'
@@ -284,7 +263,7 @@ button:hover
 			width: 20px
 			height: 20px	
 			position: absolute
-			top: 13px
+			top: 23px
 			right: 15px
 
 .phone__active
@@ -292,15 +271,16 @@ button:hover
 	width: 20px
 	height: 20px	
 	position: absolute
-	top: 13px
+	top: 23px
 	right: 15px
 .phone__not-active
 	background: url('../img/danger.png') no-repeat
 	width: 20px
 	height: 20px	
 	position: absolute
-	top: 13px
+	top: 23px
 	right: 15px
+	
 			
 .main__url__field__button
 	display: none
@@ -360,6 +340,12 @@ button:hover
 		border: none
 		&:hover
 			background: none
+
+
+
+
+
+
 .button-form
 	margin-top: 170px
 	width: 100%
@@ -376,7 +362,7 @@ button:hover
 
 .danke__button
 	margin: auto
-	margin-top: 50px	
+	margin-top: 60px	
 	background: rgba(21,200,224,1)
 	background: linear-gradient(to right, rgba(21,200,224,1) 0%, rgba(21,178,211,1) 100%)
 	padding: 10px 100px
@@ -394,9 +380,9 @@ button:hover
 .danke-body
 	height: 100%
 	margin: auto
-	margin-top: -50px 
+	margin-top: -30px 
 .footer
-	margin-top: -10px
+	margin-top: -17px
 	margin-bottom: 	10px
 	font-family: 'Open Sans'
 	font-size: 13px
@@ -480,7 +466,7 @@ button:hover
 		img
 			position: absolute
 			top: 13px
-			right: 50px 
+			right: 26px 
 		input
 			width: 90%
 			font-size: 18px
