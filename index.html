@@ -109,6 +109,7 @@
                 	typePage.style.borderColor = "#16b9d2";
 	                pageArrow.style.visibility="visible";
 	                pageArrow.src="./img/arrow-d.png";
+	             	pageArrow.style.marginTop="3px"   
                 }
 
             };
@@ -140,11 +141,13 @@
                 if (pageList.style.display == "block") {
                 	pageList.style.display = "none"
                 	pageArrow.src="./img/arrow-d.png";
+                	pageArrow.style.marginTop="3px"  
                 } else{
                 	pageList.style.display = "block";
 	                pageArrow.style.visibility="visible";
 	                typePage.style.borderColor = "#16b9d2"
 	                pageArrow.src="./img/arrow-r.png";
+	                pageArrow.style.marginTop="0px"   
                 };
             	event.stopPropagation();
                 

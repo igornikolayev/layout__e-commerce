@@ -209,6 +209,22 @@
                 const inputs1 = document.getElementById('contact__input-1').value;
                 const inputs2 = document.getElementById('contact__input-2').value;
                 const inputs3 = document.getElementById('contact__input-3').value;
+                const input1 = document.getElementById('contact__input-1');
+                const input2 = document.getElementById('contact__input-2');
+                const input3 = document.getElementById('contact__input-3');
+                
+                input1.addEventListener("keyup", function(event) {
+				  event.preventDefault();
+				  if (event.keyCode === 13) {
+				  	document.getElementById('contact__input-2').select();
+				  }
+				});
+				input2.addEventListener("keyup", function(event) {
+				  event.preventDefault();
+				  if (event.keyCode === 13) {
+				  	document.getElementById('contact__input-3').select();	
+				  }
+				});
                 const but = document.getElementById('buttonToformDanke');
                 const image = document.getElementById('phone-img');
                 if (inputs1 != '') {
