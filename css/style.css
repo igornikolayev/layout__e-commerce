@@ -412,7 +412,8 @@ button:hover {
 
 .footer-index {
   margin-top: 50px;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 10px; }
 
 .Site {
   min-height: 100vh;
