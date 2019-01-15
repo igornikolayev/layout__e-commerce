@@ -11,7 +11,7 @@
 		<title>agenturro | Home</title>
 	</head>
 
-	<body>
+	<body >
 		<div class="logo">
 			<img src="img/logo.png" alt="logo">
 		</div>
@@ -44,12 +44,12 @@
 							<p>Support</p>
 						</div>
 					</div>
-					<div class="main__block__demand">
-						<div class="wrap">
-							<h3>bekommen Sie Bewertung <br>
+					<div class="main__block__demand" >
+						<div class="wrap ">
+							<h3  onclick="blockHide()">bekommen Sie Bewertung <br>
 								zur Ihrem Projekt</h3>
 							<div class="main__block__demand__input">
-								<input type="text" id="typePage" onmouseover="hover()" onmouseout="notHover()"  placeholder="Projekt (Landing Page, Mailing)" readonly="readonly">
+								<input type="text" id="typePage" onclick="typeFocus()" onmouseover="hover()" onmouseout="notHover()"  placeholder="Projekt (Landing Page, Mailing)" readonly="readonly">
 								<img src="./img/light_case.png" class="main__block__demand__input__img" id="changeImg">
 								</div>
 							</div>
@@ -76,7 +76,7 @@
 				</div>
 			</div>
 		</main>
-		<footer class="footer footer-index">
+		<footer class="footer-index">
 			<p>Impressum</p>
 		</footer>
 	</body>
@@ -151,7 +151,11 @@
 		but.style.opacity = "1";
 		typePage.style.borderColor = "#e8e8e8"
 	};
-
+	function blockHide(){
+		if (pageList.style.display == "block") {
+			pageList.style.display = "none";
+		} 
+	}
 	function toForm() {
 		sessionStorage.setItem('itemType', typePage.value);
 

@@ -14,20 +14,23 @@
 
     </head>
 
-    <body>
-        <div class="logo">
-            <img src="img/logo.png" alt="logo">
-        </div>
-        <div class="header form-header">
-            <div class="container">
-                <h1 class="header__text form-header-text">Bewertung zur Ihrem
-                    Projekt</h1>
-                <p class="header__small-text form-small-text">bekommen Sie
-                    Bewertung zur Ihrem Projekt</p>
-            </div>
-        </div>
+    <body class="Site">
+
+        <header>
+        	<div class="logo">
+	            <img src="img/logo.png" alt="logo">
+	        </div>
+	        <div class="header form-header">
+	            <div class="container">
+	                <h1 class="header__text form-header-text">Bewertung zur Ihrem
+	                    Projekt</h1>
+	                <p class="header__small-text form-small-text">bekommen Sie
+	                    Bewertung zur Ihrem Projekt</p>
+	            </div>
+	        </div>
+        </header>
         <main class="main">
-            <div class="main-container">
+            <form class="main-container">
                 <div class="main__form">
                     <div class="contact__header">
                         <img src="img/suitcase.png" alt=""
@@ -41,11 +44,12 @@
                             	readonly="readonly" 
                                 onmouseover="hover()"
                                 onmouseout="notHover()" 
+                                onclick="typeFocus()"
                                 placeholder="Projekt(Landing Page, Mailing)">
                         </div>
                         <img  id="typePage-arrow" onmouseover="hover()" onclick="typeFocus()" src="./img/right-arrow.png"  alt=""
 							class="main__block__demand__input__img-first">
-                        <ul class="main__block__demand__proposition"
+                        <ul class=" main__block__demand__proposition-form main__block__demand__proposition"
                             id="typePage-list" onmouseover="listHover()" >
                             <li onclick="selectType(0)" class="main__block__demand__proposition__item"> Landing Page</li>
                             <li onclick="selectType(1)" class="main__block__demand__proposition__item"> Affiliate Shop</li>
@@ -58,12 +62,12 @@
                                 <input type="text" id="input-field"
                                     v-on:keyup.enter="addNewUrl"
                                     placeholder="Link zur Ähnliche Seite" />
-                                {{but}}
+                                
                             </div>
                             <div class="main__url__field" v-for="(item, i) in
                                 inputUrl" :key="item.id">
                                 <a>{{item}}</a>
-                                <button class="main__url__field__button"
+                                <button type="button" class="main__url__field__button"
                                     @click="deleteUrl(item.id)">
                                     <img src="img/delete.png" alt="">
                                 </button>
@@ -72,7 +76,7 @@
                     </div>
                 </div>
                 <div class="main__form main__form-second">
-                    <form action="" class="contact">
+                    <div class="contact">
                         <div class="contact__header">
                             <img src="img/account.png" alt=""
                                 class="contact__header__image">
@@ -89,26 +93,25 @@
                                 onfocusout="phoneOut()"
                                 onmouseout="phoneMouseOut()" 
                                 onmouseover="phoneOn()" >
-                                <input onchange="forIn3()" onfocus="forIn3()" onkeypress="forIn3()"  onfocusout="phoneMouseOut()" type="text"
-                                    class="contact__input" id="contact__input-3"
+                                <input onchange="forIn3()"  onfocus="forIn3()" onkeypress="forIn3()"  onfocusout="phoneMouseOut()" type="text" class="contact__input" id="contact__input-3"
                                     placeholder="Telefonnummer">
                                 <div class="contact__fields__phone__image"
                                     id="phone-img">
-                                    	
-                                    </div>
+								</div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <button id="buttonToformDanke"
+                
+            </form>
+        </main>
+        <footer class="footer footer-index">
+        	<button id="buttonToformDanke"
                     class="main__block__demand__button button-form"
                     onclick="location.href='danke.html';"
                     disabled>
                     <p>jetzt Ihre Projekt bewerten</p>
-                </button>
-            </div>
-        </main>
-        <footer class="footer">
+            </button>
             <p>Impressum</p>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -267,7 +270,7 @@
                         let val = document.getElementById("input-field").value;
                         if (val != '') this.inputUrl.push(val);
                         document.getElementById("input-field").value = '';
-
+                        return false;
                     },
                     deleteUrl(index) {
                         this.inputUrl.splice(index, 1);
