@@ -27,7 +27,7 @@ button {
 
 button:hover {
   background: #15c8e0;
-  background: linear-gradient(to right, #15d4e0 0%, #15c8d3 100%);
+  background: linear-gradient(to right, #19c6d1 0%, #129bd4 100%);
   border-color: #fff; }
   button:hover p {
     color: #fff; }
@@ -189,7 +189,7 @@ button:hover {
   margin: auto;
   color: #fff;
   background: #15f2e0;
-  background: linear-gradient(to right, #15d4e0 0%, #15c8d3 100%);
+  background: linear-gradient(to right, #19c6d1 0%, #129bd4 100%);
   padding: 10px 25px 10px 35px;
   border: none;
   border-radius: 50px;
@@ -393,7 +393,7 @@ button:hover {
   margin: auto;
   margin-top: 60px;
   background: #15c8e0;
-  background: linear-gradient(to right, #15d4e0 0%, #15c8d3 100%);
+  background: linear-gradient(to right, #19c6d1 0%, #129bd4 100%);
   padding: 10px 100px;
   border: none;
   border-radius: 50px; }
@@ -526,7 +526,7 @@ button:hover {
     right: -40px; }
   .danke__button {
     background: #15c8e0;
-    background: linear-gradient(to right, #15c8e0 0%, #15b2d3 100%);
+    background: linear-gradient(to right, #19c6d1 0%, #129bd4 100%);
     padding: 10px 50px;
     border: none;
     border-radius: 50px; }
