@@ -286,15 +286,21 @@ button:hover {
       width: 20px;
       height: 20px;
       position: absolute;
-      top: 23px;
+      top: 25px;
       right: 15px; }
+
+.contact__input-3:hover {
+  border: 1px solid #e8e8e7; }
+
+.contact__input-3:focus {
+  border: 1px solid #16b9d2; }
 
 .phone__active {
   background: url("../img/correct.png") no-repeat;
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 23px;
+  top: 25px;
   right: 15px; }
 
 .phone__not-active {
@@ -302,7 +308,7 @@ button:hover {
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 23px;
+  top: 25px;
   right: 15px; }
 
 .main__url__field__button {
@@ -406,9 +412,11 @@ button:hover {
 .footer {
   margin-top: -17px;
   padding-bottom: 10px;
+  padding-top: 20px;
   font-family: 'Open Sans';
   font-size: 13px;
-  text-align: center; }
+  text-align: center;
+  box-shadow: 0 -3px 5px -5px #c7b9c7; }
 
 .footer-index {
   margin-top: 50px;

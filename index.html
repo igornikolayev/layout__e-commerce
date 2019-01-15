@@ -11,7 +11,7 @@
 		<title>agenturro | Home</title>
 	</head>
 
-	<body >
+	<body onclick="typeFocusOther()" >
 		<div class="logo">
 			<img src="img/logo.png" alt="logo">
 		</div>
@@ -46,7 +46,7 @@
 					</div>
 					<div class="main__block__demand" >
 						<div class="wrap ">
-							<h3  onclick="blockHide()">bekommen Sie Bewertung <br>
+							<h3  >bekommen Sie Bewertung <br>
 								zur Ihrem Projekt</h3>
 							<div class="main__block__demand__input">
 								<input type="text" id="typePage" onclick="typeFocus()" onmouseover="hover()" onmouseout="notHover()"  placeholder="Projekt (Landing Page, Mailing)" readonly="readonly">
@@ -89,7 +89,15 @@
 	let lists = document.getElementsByClassName("main__block__demand__proposition__item");
 	const but = document.getElementById("buttonToForm");
 
-
+			function typeFocusOther() {
+                if (pageList.style.display == "block") {
+                	pageList.style.display = "none";
+                	pageArrow.src="./img/arrow-d.png";
+                	typePage.style.borderColor = "#fff"
+             	   	pageArrow.style.visibility = "hidden";
+             	   	changeImg.src="img/light_case.png";
+                }
+            };
             function hover() {
                 if (pageList.style.display=="block") {
                 	typePage.style.borderColor = "#16b9d2";
@@ -126,7 +134,7 @@
             	pageArrow.style.visibility = "visible";
         		pageArrow.src="./img/arrow-r.png";
                 typePage.style.borderColor = "#16b9d2";
-                changeImg.style.background="url('../img/light_case.png') no-repeat"
+                changeImg.style.background="url('./img/light_case.png') no-repeat"
             }
             function typeFocus() {
                 if (pageList.style.display == "block") {
@@ -137,7 +145,8 @@
 	                pageArrow.style.visibility="visible";
 	                typePage.style.borderColor = "#16b9d2"
 	                pageArrow.src="./img/arrow-r.png";
-                }
+                };
+            	event.stopPropagation();
                 
             };
 	function selectType(i) {

@@ -14,8 +14,7 @@
 
     </head>
 
-    <body class="Site">
-
+    <body class="Site" onclick="typeFocusOther()">
         <header>
         	<div class="logo">
 	            <img src="img/logo.png" alt="logo">
@@ -29,9 +28,9 @@
 	            </div>
 	        </div>
         </header>
-        <main class="main">
-            <form class="main-container">
-                <div class="main__form">
+        <main class="main" >
+            <form class="main-container"  id="data">
+                <div class="main__form" >
                     <div class="contact__header">
                         <img src="img/suitcase.png" alt=""
                             class="contact__header__image">
@@ -57,7 +56,7 @@
                             <li onclick="selectType(3)" class="main__block__demand__proposition__item"> HTML5 Banners</li>
                             <li onclick="selectType(4)" class="main__block__demand__proposition__item"> E-Mail Marketing</li>
                         </ul>
-                        <div class="contact__fields__url" id="input_url">
+                        <div  class="contact__fields__url" id="input_url">
                             <div class="main__url__field">
                                 <input type="text" id="input-field"
                                     v-on:keyup.enter="addNewUrl"
@@ -75,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="main__form main__form-second">
+                <div class="main__form main__form-second" onclick="typeFocusOther()">
                     <div class="contact">
                         <div class="contact__header">
                             <img src="img/account.png" alt=""
@@ -83,17 +82,14 @@
                             <p class="contact__header">Kontakt</p>
                         </div>
                         <div class="contact__fields contact__fields-bot  ">
-                            <input onchange="ar()" type="text/javascript"
+                            <input name="Name" onchange="ar()" type="text/javascript"
                                 class="contact__input" id="contact__input-1"
                                 placeholder="Ihre Name">
-                            <input onchange="ar()" type="text/javascript"
+                            <input name="E-Mail" onchange="ar()" type="text/javascript"
                                 class="contact__input" id="contact__input-2"
                                 placeholder="E-Mail">
-                            <div class="contact__fields__phone"
-                                onfocusout="phoneOut()"
-                                onmouseout="phoneMouseOut()" 
-                                onmouseover="phoneOn()" >
-                                <input onchange="forIn3()"  onfocus="forIn3()" onkeypress="forIn3()"  onfocusout="phoneMouseOut()" type="text" class="contact__input" id="contact__input-3"
+                            <div name="phone" class="contact__fields__phone" >
+                                <input  onchange="forIn3()" onblur="outFocusPhone()" onmouseout="phoneMouseOut()" onmouseover="onMouseOverPhone()" onfocus="onFocusPhone()" type="text" class="contact__input" id="contact__input-3"
                                     placeholder="Telefonnummer">
                                 <div class="contact__fields__phone__image"
                                     id="phone-img">
@@ -106,7 +102,7 @@
             </form>
         </main>
         <footer class="footer footer-index">
-        	<button id="buttonToformDanke"
+        	<button  id="buttonToformDanke"
                     class="main__block__demand__button button-form"
                     onclick="location.href='danke.html';"
                     disabled>
@@ -117,7 +113,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
             window.onload = function () {
-                    document.getElementById("typePage1").value = sessionStorage.getItem('itemType');
+                document.getElementById("typePage1").value = sessionStorage.getItem('itemType');
             };
             let typePage = document.getElementById("typePage1");
             const pageArrow = document.getElementById("typePage-arrow");
@@ -163,19 +159,37 @@
         		pageArrow.src="./img/arrow-r.png";
                 typePage.style.borderColor = "#16b9d2"
             }
+            function typeFocusOther() {
+                if (pageList.style.display == "block") {
+                	pageList.style.display = "none";
+                	pageArrow.src="./img/arrow-d.png";
+                	typePage.style.borderColor = "#fff"
+             	   	pageArrow.style.visibility = "hidden";
+            
+                }
+            };
             function typeFocus() {
                 if (pageList.style.display == "block") {
                 	pageList.style.display = "none"
                 	pageArrow.src="./img/arrow-d.png";
+                	typePage.style.borderColor = "#fff"
+             	   	pageArrow.style.visibility = "hidden";
+            
                 } else{
                 	pageList.style.display = "block";
 	                pageArrow.style.visibility="visible";
 	                typePage.style.borderColor = "#16b9d2";
 	                pageArrow.src="./img/arrow-r.png";
                 }
+            	event.stopPropagation();
                 
             };
-
+            function focusOther() {
+            	if (pageList.style.display == "block") {
+                	pageList.style.display = "none"
+                	pageArrow.src="./img/arrow-d.png";
+                }
+            };
             function selectType(i) {
                 typePage.value = lists[i].innerHTML;
                 pageList.style.display = "none";
@@ -184,27 +198,13 @@
                 pageArrow.style.visibility = "hidden";
               
             };
-
-            function phoneMouseOut(){
-            	inputPhone.style.borderColor="#fff";
-                image.style.display = "none";	
-            };
-            function phoneOut() {
-                image.style.display = "none";
-                
-            };
-
-            function phoneOn() {
-                image.style.display = "block";
-                if ( inputPhone.value=='') {
-                	inputPhone.style.borderColor="#ff7592";
-                } else {
-                	inputPhone.style.borderColor="#55e0a4";
-                }
-
-            };
+           
         </script>
         <script>
+        	window.onload = function () {
+                let isFocus=false;
+                let isHover=false;
+             };
             function ar() {
                 const inputs1 = document.getElementById('contact__input-1').value;
                 const inputs2 = document.getElementById('contact__input-2').value;
@@ -218,34 +218,64 @@
                             but.style.opacity = "1";
                         } else {
                             but.disabled = true;
-                            but.style.opacity = "0.2";
+                            but.style.opacity = "0.3";
                         }
                     } else {
                         but.disabled = true;
-                        but.style.opacity = "0.2";
+                        but.style.opacity = "0.3";
                     }
                 } else {
                     but.disabled = true;
-                    but.style.opacity = "0.2";
+                    but.style.opacity = "0.3";
                 }
 
 
             };
+            function onMouseOverPhone(){
+            	inputPhone.style.borderColor = "#e8e8e8";
+            	hover=true;
+            	if (isFocus) {
+            		inputPhone.style.borderColor = "#16b9d2";	
+            	};
+            };
+            function onFocusPhone(){
+            	
+	            	inputPhone.style.borderColor = "#16b9d2";
+	            	isFocus=true
+    
+            };
+
+            function outFocusPhone(){
+            	isFocus=false;
+            	inputPhone.style.borderColor="#fff";
+				image.style.display = "none"	
+            };
+            function phoneMouseOut(){
+            	if (isFocus==false) {
+	            	inputPhone.style.borderColor="#fff";
+	                image.style.display = "none"
+            	} else {
+            		inputPhone.style.borderColor = "#16b9d2";
+            	}
+
+            	hover=false;
+            };
 
             function phoneOnChange() {
-            	inputPhone.style.borderColor="#16b9d2";
-            	if ( inputPhone.value=='') {
-                	inputPhone.style.borderColor="#ff7592";
-                } else {
+
+            	if ( inputPhone.value!='') {
                 	inputPhone.style.borderColor="#55e0a4";
                 }
+                else {
+                		inputPhone.style.borderColor="#ff7592";
+                	}	
             };
             function ar3() {
                 const image = document.getElementById('phone-img');
                 const inputs3 = document.getElementById('contact__input-3').value;
+                image.style.display="block";
                 if (inputs3 != '') {
                     image.classList.remove("phone__not-active");
-
                     image.classList.add("phone__active");
                 } else {
                     image.classList.remove("phone__active");
@@ -256,8 +286,8 @@
 
             function forIn3() {
                 ar();
+                phoneOnChange()
                 ar3();
-                phoneOnChange();
             }
             let addUrl = new Vue({
                 el: '#input_url',
