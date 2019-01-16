@@ -203,8 +203,10 @@
         <script>
         	window.onload = function () {
                 let isFocus=false;
-                let isHover=false;
-             };
+                 let isHover=false;
+                return[ isFocus, isHover]
+            };
+
             function ar() {
                 const inputs1 = document.getElementById('contact__input-1').value;
                 const inputs2 = document.getElementById('contact__input-2').value;
@@ -212,19 +214,25 @@
                 const input1 = document.getElementById('contact__input-1');
                 const input2 = document.getElementById('contact__input-2');
                 const input3 = document.getElementById('contact__input-3');
-                
                 input1.addEventListener("keyup", function(event) {
 				  event.preventDefault();
 				  if (event.keyCode === 13) {
 				  	document.getElementById('contact__input-2').select();
 				  }
 				});
-				input2.addEventListener("keyup", function(event) {
-				  event.preventDefault();
-				  if (event.keyCode === 13) {
-				  	document.getElementById('contact__input-3').select();	
-				  }
-				});
+                input2.addEventListener("keyup", function(event) {
+                  event.preventDefault();
+                  if (event.keyCode === 13) {
+                    document.getElementById('contact__input-3').select();   
+                  }
+                });
+                input3.addEventListener("keyup", function(event) {
+                  event.preventDefault();
+                  if (event.keyCode === 8) {
+                       phoneOnChange();
+                       ar3();
+                  }
+                });
                 const but = document.getElementById('buttonToformDanke');
                 const image = document.getElementById('phone-img');
                 if (inputs1 != '') {
@@ -247,11 +255,14 @@
 
 
             };
+            let isFocus=false;
+            let isHover=false;
+                
             function onMouseOverPhone(){
             	inputPhone.style.borderColor = "#e8e8e8";
             	hover=true;
             	if (isFocus) {
-            		inputPhone.style.borderColor = "#16b9d2";	
+                    phoneOnChange()	
             	};
             };
             function onFocusPhone(){
@@ -271,7 +282,7 @@
 	            	inputPhone.style.borderColor="#fff";
 	                image.style.display = "none"
             	} else {
-            		inputPhone.style.borderColor = "#16b9d2";
+            		phoneOnChange()
             	}
 
             	hover=false;
