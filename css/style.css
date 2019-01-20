@@ -35,6 +35,8 @@ button:hover {
 .logo {
   margin-left: 20px;
   margin-top: 20px; }
+  .logo img {
+    max-width: 123px; }
 
 .container {
   width: 80%;

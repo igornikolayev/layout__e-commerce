@@ -1,249 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu"
-            rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans"
-            rel="stylesheet">
-        <title>agenturro|Form</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>agenturro|Form</title>
 
-    </head>
+</head>
 
-    <body class="Site" onclick="typeFocusOther()">
-        <header>
-        	<div class="logo">
-	            <img src="img/logo.png" alt="logo">
-	        </div>
-	        <div class="header form-header">
-	            <div class="container">
-	                <h1 class="header__text form-header-text">Bewertung zur Ihrem
-	                    Projekt</h1>
-	                <p class="header__small-text form-small-text">bekommen Sie
-	                    Bewertung zur Ihrem Projekt</p>
-	            </div>
-	        </div>
-        </header>
-        <main class="main" >
-            <form class="main-container"  id="data">
-                <div class="main__form" >
-                    <div class="contact__header">
-                        <img src="img/suitcase.png" alt=""
-                            class="contact__header__image">
-                        <p class="contact__header">Projekt</p>
-                    </div>
-                    <div class="contact__fields">
-                        <div class="main__block__demand__input
+<body class="Site" onclick="typeFocusOther()">
+    <header>
+        <div class="logo">
+            <img src="img/agenturro-logo_0.svg" alt="logo">
+        </div>
+        <div class="header form-header">
+            <div class="container">
+                <h1 class="header__text form-header-text">Bewertung zur Ihrem
+                    Projekt</h1>
+                <p class="header__small-text form-small-text">bekommen Sie
+                    Bewertung zur Ihrem Projekt</p>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <form class="main-container" id="data">
+            <div class="main__form">
+                <div class="contact__header">
+                    <img src="img/suitcase.png" alt="" class="contact__header__image">
+                    <p class="contact__header">Projekt</p>
+                </div>
+                <div class="contact__fields">
+                    <div class="main__block__demand__input
                             main__block__demand__input-font">
-                            <input type="text" id="typePage1"
-                            	readonly="readonly" 
-                                onmouseover="hover()"
-                                onmouseout="notHover()" 
-                                onclick="typeFocus()"
-                                placeholder="Projekt(Landing Page, Mailing)">
+                        <input type="text" id="typePage" readonly="readonly" onmouseover="hover()" onmouseout="notHover()"
+                            onclick="typeFocus()" placeholder="Projekt(Landing Page, Mailing)">
+                    </div>
+                    <img id="typePage-arrow" onmouseover="hover()" onclick="typeFocus()" src="./img/right-arrow.png"
+                        alt="" class="main__block__demand__input__img-first">
+                    <ul class=" main__block__demand__proposition-form main__block__demand__proposition" id="typePage-list"
+                        onmouseover="listHover()">
+                        <li onclick="selectType(0)" class="main__block__demand__proposition__item"> Landing Page</li>
+                        <li onclick="selectType(1)" class="main__block__demand__proposition__item"> Affiliate Shop</li>
+                        <li onclick="selectType(2)" class="main__block__demand__proposition__item"> PSD zur HTML</li>
+                        <li onclick="selectType(3)" class="main__block__demand__proposition__item"> HTML5 Banners</li>
+                        <li onclick="selectType(4)" class="main__block__demand__proposition__item"> E-Mail Marketing</li>
+                    </ul>
+                    <div class="contact__fields__url" id="input_url">
+                        <div class="main__url__field">
+                            <input type="text" id="input-field" v-on:keyup.enter="addNewUrl" placeholder="Link zur Ähnliche Seite" />
+
                         </div>
-                        <img  id="typePage-arrow" onmouseover="hover()" onclick="typeFocus()" src="./img/right-arrow.png"  alt=""
-							class="main__block__demand__input__img-first">
-                        <ul class=" main__block__demand__proposition-form main__block__demand__proposition"
-                            id="typePage-list" onmouseover="listHover()" >
-                            <li onclick="selectType(0)" class="main__block__demand__proposition__item"> Landing Page</li>
-                            <li onclick="selectType(1)" class="main__block__demand__proposition__item"> Affiliate Shop</li>
-                            <li onclick="selectType(2)" class="main__block__demand__proposition__item"> PSD zur HTML</li>
-                            <li onclick="selectType(3)" class="main__block__demand__proposition__item"> HTML5 Banners</li>
-                            <li onclick="selectType(4)" class="main__block__demand__proposition__item"> E-Mail Marketing</li>
-                        </ul>
-                        <div  class="contact__fields__url" id="input_url">
-                            <div class="main__url__field">
-                                <input type="text" id="input-field"
-                                    v-on:keyup.enter="addNewUrl"
-                                    placeholder="Link zur Ähnliche Seite" />
-                                
-                            </div>
-                            <div class="main__url__field" v-for="(item, i) in
-                                inputUrl" :key="item.id">
-                                <a>{{item}}</a>
-                                <button type="button" class="main__url__field__button"
-                                    @click="deleteUrl(item.id)">
-                                    <img src="img/delete.png" alt="">
-                                </button>
+                        <div class="main__url__field" v-for="(item, i) in
+                                inputUrl"
+                            :key="item.id">
+                            <a>{{item}}</a>
+                            <button type="button" class="main__url__field__button" @click="deleteUrl(item.id)">
+                                <img src="img/delete.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main__form main__form-second" onclick="typeFocusOther()">
+                <div class="contact">
+                    <div class="contact__header">
+                        <img src="img/account.png" alt="" class="contact__header__image">
+                        <p class="contact__header">Kontakt</p>
+                    </div>
+                    <div class="contact__fields contact__fields-bot  ">
+                        <input name="Name" onchange="ar()" type="text/javascript" class="contact__input" id="contact__input-1"
+                            placeholder="Ihre Name">
+                        <input name="E-Mail" onchange="ar()" type="text/javascript" class="contact__input" id="contact__input-2"
+                            placeholder="E-Mail">
+                        <div name="phone" class="contact__fields__phone">
+                            <input onchange="forIn3()" onblur="outFocusPhone()" onmouseout="phoneMouseOut()"
+                                onmouseover="onMouseOverPhone()" onfocus="onFocusPhone()" type="text" class="contact__input"
+                                id="contact__input-3" placeholder="Telefonnummer">
+                            <div class="contact__fields__phone__image" id="phone-img">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="main__form main__form-second" onclick="typeFocusOther()">
-                    <div class="contact">
-                        <div class="contact__header">
-                            <img src="img/account.png" alt=""
-                                class="contact__header__image">
-                            <p class="contact__header">Kontakt</p>
-                        </div>
-                        <div class="contact__fields contact__fields-bot  ">
-                            <input name="Name" onchange="ar()" type="text/javascript"
-                                class="contact__input" id="contact__input-1"
-                                placeholder="Ihre Name">
-                            <input name="E-Mail" onchange="ar()" type="text/javascript"
-                                class="contact__input" id="contact__input-2"
-                                placeholder="E-Mail">
-                            <div name="phone" class="contact__fields__phone" >
-                                <input  onchange="forIn3()" onblur="outFocusPhone()" onmouseout="phoneMouseOut()" onmouseover="onMouseOverPhone()" onfocus="onFocusPhone()" type="text" class="contact__input" id="contact__input-3"
-                                    placeholder="Telefonnummer">
-                                <div class="contact__fields__phone__image"
-                                    id="phone-img">
-								</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </form>
-        </main>
-        <footer class="footer footer-index">
-        	<button  id="buttonToformDanke"
-                    class="main__block__demand__button button-form"
-                    onclick="location.href='danke.html';"
-                    disabled>
-                    <p>jetzt Ihre Projekt bewerten</p>
-            </button>
-            <p>Impressum</p>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script>
-            window.onload = function () {
-                document.getElementById("typePage1").value = sessionStorage.getItem('itemType');
-            };
-            let typePage = document.getElementById("typePage1");
-            const pageArrow = document.getElementById("typePage-arrow");
-            const pageList = document.getElementById("typePage-list");
-            const changeImg = document.getElementById("changeImg");
-            let lists = document.getElementsByClassName("main__block__demand__proposition__item");
-            const image = document.getElementById('phone-img');
-            let inputPhone=document.getElementById("contact__input-3");
-            function toForm() {
-                sessionStorage.setItem('key', typePage.value);
+            </div>
+
+        </form>
+    </main>
+    <footer class="footer footer-index">
+        <button id="buttonToformDanke" class="main__block__demand__button button-form" onclick="location.href='danke.html';"
+            disabled>
+            <p>jetzt Ihre Projekt bewerten</p>
+        </button>
+        <p>Impressum</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        window.onload = function () {
+            let isFocus = false;
+            let isHover = false;
+
+            document.getElementById("typePage").value = sessionStorage.getItem('itemType');
+        };
+    </script>
+    <script>
+        let typePage = document.getElementById("typePage");
+        const pageArrow = document.getElementById("typePage-arrow");
+        const pageList = document.getElementById("typePage-list");
+        const changeImg = document.getElementById("changeImg");
+        let lists = document.getElementsByClassName("main__block__demand__proposition__item");
+        const image = document.getElementById('phone-img');
+        let inputPhone = document.getElementById("contact__input-3");
+
+        function hover() {
+            if (pageList.style.display == "block") {
+                typePage.style.borderColor = "#16b9d2";
+                pageArrow.style.visibility = "visible";
+                pageArrow.src = "./img/arrow-r.png";
+            } else {
+                pageArrow.style.visibility = "visible";
+                typePage.style.borderColor = "#e8e8e8";
+                pageArrow.src = "./img/right-arrow.png";
             }
 
-            function hover() {
-                if (pageList.style.display=="block") {
-                	typePage.style.borderColor = "#16b9d2";
-                	pageArrow.style.visibility="visible";
-	                pageArrow.src="./img/arrow-r.png";
-                } else {
-	                pageArrow.style.visibility="visible";
-                	typePage.style.borderColor = "#e8e8e8";
-	                pageArrow.src="./img/right-arrow.png";
-                }
+        };
 
-            };
+        function hoverTypePage() {
+            pageArrow.style.visibility = "visible";
+            typePage.style.borderColor = "#16b9d2";
+            pageArrow.src = "./img/arrow-r.png ";
+        }
 
-            function hoverTypePage() {
-                pageArrow.style.visibility="visible";
-				typePage.style.borderColor = "#16b9d2";
-                pageArrow.src="./img/arrow-r.png ";
+        function notHover() {
+            if (pageList.style.display == "block") {
+                hoverTypePage();
+            } else {
+                pageArrow.style.visibility = "hidden";
+                typePage.style.borderColor = "#fff"
             }
 
-            function notHover() {
-            	if (pageList.style.display=="block") {
-            		hoverTypePage();
-            	} else {
-	            	pageArrow.style.visibility = "hidden";
-	                typePage.style.borderColor = "#fff"	
-            	}
-                
-            };
-            function listHover(){
-            	pageArrow.style.visibility = "visible";
-        		pageArrow.src="./img/arrow-r.png";
-                typePage.style.borderColor = "#16b9d2"
-            }
-            function typeFocusOther() {
-                if (pageList.style.display == "block") {
-                	pageList.style.display = "none";
-                	pageArrow.src="./img/arrow-d.png";
-                	typePage.style.borderColor = "#fff"
-             	   	pageArrow.style.visibility = "hidden";
-            
-                }
-            };
-            function typeFocus() {
-                if (pageList.style.display == "block") {
-                	pageList.style.display = "none"
-                	pageArrow.src="./img/arrow-d.png";
-                	typePage.style.borderColor = "#fff"
-             	   	pageArrow.style.visibility = "hidden";
-            
-                } else{
-                	pageList.style.display = "block";
-	                pageArrow.style.visibility="visible";
-	                typePage.style.borderColor = "#16b9d2";
-	                pageArrow.src="./img/arrow-r.png";
-                }
-            	event.stopPropagation();
-                
-            };
-            function focusOther() {
-            	if (pageList.style.display == "block") {
-                	pageList.style.display = "none"
-                	pageArrow.src="./img/arrow-d.png";
-                }
-            };
-            function selectType(i) {
-                typePage.value = lists[i].innerHTML;
+        };
+        function listHover() {
+            pageArrow.style.visibility = "visible";
+            pageArrow.src = "./img/arrow-r.png";
+            typePage.style.borderColor = "#16b9d2"
+        }
+        function typeFocusOther() {
+            if (pageList.style.display == "block") {
                 pageList.style.display = "none";
-                pageArrow.style.transform = "rotate(0deg)";
+                pageArrow.src = "./img/arrow-d.png";
                 typePage.style.borderColor = "#fff"
                 pageArrow.style.visibility = "hidden";
-              
-            };
-           
-        </script>
-        <script>
-        	window.onload = function () {
-                let isFocus=false;
-                 let isHover=false;
-                return[ isFocus, isHover]
-            };
 
-            function ar() {
-                const inputs1 = document.getElementById('contact__input-1').value;
-                const inputs2 = document.getElementById('contact__input-2').value;
-                const inputs3 = document.getElementById('contact__input-3').value;
-                const input1 = document.getElementById('contact__input-1');
-                const input2 = document.getElementById('contact__input-2');
-                const input3 = document.getElementById('contact__input-3');
-                input1.addEventListener("keyup", function(event) {
-				  event.preventDefault();
-				  if (event.keyCode === 13) {
-				  	document.getElementById('contact__input-2').select();
-				  }
-				});
-                input2.addEventListener("keyup", function(event) {
-                  event.preventDefault();
-                  if (event.keyCode === 13) {
-                    document.getElementById('contact__input-3').select();   
-                  }
-                });
-                input3.addEventListener("keyup", function(event) {
-                  event.preventDefault();
-                  if (event.keyCode === 8) {
-                       phoneOnChange();
-                       ar3();
-                  }
-                });
-                const but = document.getElementById('buttonToformDanke');
-                const image = document.getElementById('phone-img');
-                if (inputs1 != '') {
-                    if (inputs2 != '') {
-                        if (inputs3 != '') {
-                            but.disabled = false;
-                            but.style.opacity = "1";
-                        } else {
-                            but.disabled = true;
-                            but.style.opacity = "0.3";
-                        }
+            }
+        };
+        function typeFocus() {
+            if (pageList.style.display == "block") {
+                pageList.style.display = "none"
+                pageArrow.src = "./img/arrow-d.png";
+                typePage.style.borderColor = "#fff"
+                pageArrow.style.visibility = "hidden";
+
+            } else {
+                pageList.style.display = "block";
+                pageArrow.style.visibility = "visible";
+                typePage.style.borderColor = "#16b9d2";
+                pageArrow.src = "./img/arrow-r.png";
+            }
+            event.stopPropagation();
+
+        };
+        function focusOther() {
+            if (pageList.style.display == "block") {
+                pageList.style.display = "none"
+                pageArrow.src = "./img/arrow-d.png";
+            }
+        };
+        function selectType(i) {
+            typePage.value = lists[i].innerHTML;
+            pageList.style.display = "none";
+            pageArrow.style.transform = "rotate(0deg)";
+            typePage.style.borderColor = "#fff"
+            pageArrow.style.visibility = "hidden";
+
+        };
+
+    </script>
+    <script>
+
+        function ar() {
+            const inputs1 = document.getElementById('contact__input-1').value;
+            const inputs2 = document.getElementById('contact__input-2').value;
+            const inputs3 = document.getElementById('contact__input-3').value;
+            const input1 = document.getElementById('contact__input-1');
+            const input2 = document.getElementById('contact__input-2');
+            const input3 = document.getElementById('contact__input-3');
+            input1.addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById('contact__input-2').select();
+                }
+            });
+            input2.addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById('contact__input-3').select();
+                }
+            });
+            input3.addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 8) {
+                    phoneOnChange();
+                    ar3();
+                }
+            });
+            const but = document.getElementById('buttonToformDanke');
+            const image = document.getElementById('phone-img');
+            if (inputs1 != '') {
+                if (inputs2 != '') {
+                    if (inputs3 != '') {
+                        but.disabled = false;
+                        but.style.opacity = "1";
                     } else {
                         but.disabled = true;
                         but.style.opacity = "0.3";
@@ -252,100 +232,104 @@
                     but.disabled = true;
                     but.style.opacity = "0.3";
                 }
-
-
-            };
-            let isFocus=false;
-            let isHover=false;
-                
-            function onMouseOverPhone(){
-            	inputPhone.style.borderColor = "#e8e8e8";
-            	hover=true;
-            	if (isFocus) {
-                    phoneOnChange()	
-            	};
-            };
-            function onFocusPhone(){
-            	
-	            	inputPhone.style.borderColor = "#16b9d2";
-	            	isFocus=true
-    
-            };
-
-            function outFocusPhone(){
-            	isFocus=false;
-            	inputPhone.style.borderColor="#fff";
-				image.style.display = "none"	
-            };
-            function phoneMouseOut(){
-            	if (isFocus==false) {
-	            	inputPhone.style.borderColor="#fff";
-	                image.style.display = "none"
-            	} else {
-            		phoneOnChange()
-            	}
-
-            	hover=false;
-            };
-
-            function phoneOnChange() {
-
-            	if ( inputPhone.value!='') {
-                	inputPhone.style.borderColor="#55e0a4";
-                }
-                else {
-                		inputPhone.style.borderColor="#ff7592";
-                	}	
-            };
-            function ar3() {
-                const image = document.getElementById('phone-img');
-                const inputs3 = document.getElementById('contact__input-3').value;
-                image.style.display="block";
-                if (inputs3 != '') {
-                    image.classList.remove("phone__not-active");
-                    image.classList.add("phone__active");
-                } else {
-                    image.classList.remove("phone__active");
-                    image.classList.add("phone__not-active");
-
-                }
-            };
-
-            function forIn3() {
-                ar();
-                phoneOnChange()
-                ar3();
+            } else {
+                but.disabled = true;
+                but.style.opacity = "0.3";
             }
-            let addUrl = new Vue({
-                el: '#input_url',
-                data: {
-                    inputUrl: [],
-                },
-                methods: {
-                    addNewUrl() {
 
-                        let val = document.getElementById("input-field").value;
-                        if (val != '') this.inputUrl.push(val);
-                        document.getElementById("input-field").value = '';
-                        return false;
-                    },
-                    deleteUrl(index) {
-                        this.inputUrl.splice(index, 1);
-                    }
+
+        };
+        let isFocus = false;
+        let isHover = false;
+
+        function onMouseOverPhone() {
+            inputPhone.style.borderColor = "#e8e8e8";
+            hover = true;
+            if (isFocus) {
+                phoneOnChange()
+            };
+        };
+        function onFocusPhone() {
+
+            inputPhone.style.borderColor = "#16b9d2";
+            isFocus = true
+
+        };
+
+        function outFocusPhone() {
+            isFocus = false;
+            inputPhone.style.borderColor = "#fff";
+            image.style.display = "none"
+        };
+        function phoneMouseOut() {
+            if (isFocus == false) {
+                inputPhone.style.borderColor = "#fff";
+                image.style.display = "none"
+            } else {
+                phoneOnChange()
+            }
+
+            hover = false;
+        };
+
+        function phoneOnChange() {
+
+            if (inputPhone.value != '') {
+                inputPhone.style.borderColor = "#55e0a4";
+            }
+            else {
+                inputPhone.style.borderColor = "#ff7592";
+            }
+        };
+        function ar3() {
+            const image = document.getElementById('phone-img');
+            const inputs3 = document.getElementById('contact__input-3').value;
+            image.style.display = "block";
+            if (inputs3 != '') {
+                image.classList.remove("phone__not-active");
+                image.classList.add("phone__active");
+            } else {
+                image.classList.remove("phone__active");
+                image.classList.add("phone__not-active");
+
+            }
+        };
+
+        function forIn3() {
+            ar();
+            phoneOnChange()
+            ar3();
+        }
+        let addUrl = new Vue({
+            el: '#input_url',
+            data: {
+                inputUrl: [],
+            },
+            methods: {
+                addNewUrl() {
+
+                    let val = document.getElementById("input-field").value;
+                    if (val != '') this.inputUrl.push(val);
+                    document.getElementById("input-field").value = '';
+                    return false;
                 },
-                computed: {
-                    but() {
-                        if (this.inputUrl.length == 0) {
-                            document.getElementById("buttonToformDanke").style.opacity = "0.3"
-                            document.getElementById("buttonToformDanke").disabled = true;
-                        } else {
-                            document.getElementById("buttonToformDanke").style.opacity = "1";
-                            document.getElementById("buttonToformDanke").disabled = false;
-                        }
+                deleteUrl(index) {
+                    this.inputUrl.splice(index, 1);
+                }
+            },
+            computed: {
+                but() {
+                    if (this.inputUrl.length == 0) {
+                        document.getElementById("buttonToformDanke").style.opacity = "0.3"
+                        document.getElementById("buttonToformDanke").disabled = true;
+                    } else {
+                        document.getElementById("buttonToformDanke").style.opacity = "1";
+                        document.getElementById("buttonToformDanke").disabled = false;
                     }
                 }
-            });
-        </script>
-    </body>
+            }
+        });
+    </script>
+</body>
 
 </html>
